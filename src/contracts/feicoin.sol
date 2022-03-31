@@ -34,6 +34,7 @@ contract FEICoin is ERC20Interface {
 
     function transfer(address to, uint256 tokens)
         public
+        virtual
         override
         returns (bool success)
     {
@@ -74,7 +75,7 @@ contract FEICoin is ERC20Interface {
         address from,
         address to,
         uint256 tokens
-    ) public override returns (bool success) {
+    ) public virtual override returns (bool success) {
         require(allowed[from][to] >= tokens);
         require(balances[from] >= tokens);
 
